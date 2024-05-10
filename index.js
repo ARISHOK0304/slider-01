@@ -5,51 +5,49 @@ leftBtn = document.getElementById('leftBtn')
 rightBtn = document.getElementById('rightBtn')
 
 
-point[0].classList.add ('activeImage')
-imageSlider[0].classList.add ('activeImage')
-about__list[0].classList.add ('active')
+point[0].classList.add('activeImage')
+imageSlider[0].classList.add('activeImage')
+about__list[0].classList.add('active')
 
 let counter = 0;
 
- for(let i=0; i<point.length; i++){
+function paintActiveElement(){
+    document.querySelector('.point.activeImage').classList.remove('activeImage')
+    document.querySelector('.imageSlider.activeImage').classList.remove('activeImage')
+    document.querySelector('.about__list.active').classList.remove('active')
+
+    imageSlider[counter].classList.add('activeImage')
+    point[counter].classList.add('activeImage')
+    about__list[counter].classList.add('active')
+}
+
+for(let i=0; i<point.length; i++){
     point[i].addEventListener('click',()=>{
-        for(let k = 0; k<imageSlider.length; k++){
-            point[k].classList.remove('activeImage')
-            imageSlider[k].classList.remove('activeImage')
-        }
         counter = i;
-        imageSlider[counter].classList.add('activeImage')
-        point[counter].classList.add('activeImage')
+        paintActiveElement()
     })
- 
- }
+}
+
+for(let i=0; i<about__list.length; i++){
+    about__list[i].addEventListener('click',()=>{
+        counter = i;
+        paintActiveElement()
+    })
+}
 
 
- leftBtn.addEventListener('click',()=>{
-    for(let k = 0;k<imageSlider.length;k++){
-        point[k].classList.remove('activeImage')
-            imageSlider[k].classList.remove('activeImage')
-    }
+leftBtn.addEventListener('click',()=>{
     counter--
     if (counter <0 ){
         counter = imageSlider.length-1
     }
-    imageSlider[counter].classList.add('activeImage')
-    point[counter].classList.add('activeImage')
- })
+    paintActiveElement()
+})
 
- rightBtn.addEventListener('click',()=>{
-    for(let k = 0;k<imageSlider.length;k++){
-        point[k].classList.remove('activeImage')
-            imageSlider[k].classList.remove('activeImage')
-    }
+rightBtn.addEventListener('click',()=>{
     counter++
     if (counter >= imageSlider.length ){
         counter = 0
     }
-    imageSlider[counter].classList.add('activeImage')
-    point[counter].classList.add('activeImage')
+    paintActiveElement()
 })
-
-
- 
