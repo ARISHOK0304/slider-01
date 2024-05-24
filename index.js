@@ -1,3 +1,10 @@
+
+
+
+
+/////
+
+
 let point = document.querySelectorAll('.point')
 let imageSlider = document.querySelectorAll('.imageSlider')
 let about__list = document.querySelectorAll('.about__list')
@@ -21,33 +28,37 @@ function paintActiveElement(){
     about__list[counter].classList.add('active')
 }
 
-for(let i=0; i<point.length; i++){
-    point[i].addEventListener('click',()=>{
+ for(let i=0; i<point.length; i++){
+   point[i].addEventListener('click',()=>{
         counter = i;
         paintActiveElement()
-    })
-}
+    })   
+ }
 
-for(let i=0; i<about__list.length; i++){
+ for(let i=0; i<about__list.length; i++){
     about__list[i].addEventListener('click',()=>{
-        counter = i;
-        paintActiveElement()
-    })
-}
+         counter = i;
+         paintActiveElement()
+     })
+    } 
 
-
-leftBtn.addEventListener('click',()=>{
+ 
+ leftBtn.addEventListener('click',()=>{
     counter--
     if (counter <0 ){
         counter = imageSlider.length-1
     }
     paintActiveElement()
-})
+ })
 
-rightBtn.addEventListener('click',()=>{
+ rightBtn.addEventListener('click',()=>{
     counter++
     if (counter >= imageSlider.length ){
         counter = 0
     }
     paintActiveElement()
 })
+
+
+//////
+

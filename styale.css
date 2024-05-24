@@ -5,7 +5,7 @@
 body {
     font-family: 'Inter', sans-serif;
     font-family: 'Nunito Sans', sans-serif;
-
+    background: #131313;
 
 
 }
@@ -141,8 +141,13 @@ a {
 }
 
 
-.about__list:hover .active   {
+.about__list:hover,
+.about__list.active {
+    margin-right: 50px;
+    position: relative; 
     color: #E3B873;
+    text-decoration: underline;
+    opacity: 1;
 
 }
 
@@ -176,18 +181,22 @@ a {
     width: 100%;
     height: 100%;
     overflow: hidden;
+   
     
 }
 
 .imageSlider {
+    position: absolute;
     width: 100%;
     height: 100%;
     overflow: hidden;
     opacity: 0;
 }
- .activeImage   {
-   opacity: 1;
+
+.activeImage   {
+    opacity: 1;
     background: white;
+  
 }
 
 
